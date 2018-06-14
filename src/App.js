@@ -1,23 +1,40 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import Home from './home/Home';
-import NavBar from './nav/NavBar';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import BudgetResults from './budget/BudgetResults';
+// import logo from './logo.svg';
+import Home from './project/Home';
+// import NavBar from './nav/NavBar';
 import './App.css';
 
 class App extends Component {
+
+
+
+      // Set initial state
+      state = {
+        currentView: "",
+        searchTerms: ""
+    }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get staranythingted, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      // <div>
+      <Router>
+      <div>
+        <Route exact path ={'/'} component={Home} />
+            <Route exact path={'/budget/:budgetId'} component={BudgetResults}/>
 
-    );
+        </div>
+        </Router>
+      /* <article>
+        <Route exact path={'/budget'} component={BudgetResults}/>
+          <NavBar viewHandler={this.showView}
+          />
+          <Home/>
+
+
+      </article>
+      </div> */
+  )
   }
 }
 

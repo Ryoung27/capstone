@@ -1,13 +1,16 @@
 import React, { Component } from "react"
-//import Project from "./Project";
+import Project from "./Project"
+import "./ProjectList.css"
 
 export default class ProjectList extends Component {
-
     render() {
         return (
-            <div className="card post">
-                <div className="card-body">
-                    <h5 className="card-text"> {this.props.projects.address} </h5>
+            <div className="projectList">
+                <h1 className="projectList__header">Projects</h1>
+                {
+                    this.props.projects.map(p => <Project key={p.id} project={p} />)
+                }
+            </div>
         )
     }
 }
