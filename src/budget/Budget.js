@@ -5,6 +5,9 @@ export default class Budget extends Component {
         return (
             <div>
                 <div>
+                    {this.props.materials}
+                </div>
+                <div>
                  {this.props.projects_materials.explanation}
                 </div>
             </div>

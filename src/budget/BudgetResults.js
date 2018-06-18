@@ -8,6 +8,7 @@ export default class BudgetResults extends Component {
         projects_materials: [],
         projects: [],
         materials: [],
+        allMaterials: [],
         selectedId: 0
     }
 
@@ -26,11 +27,17 @@ export default class BudgetResults extends Component {
         fetch(`http://localhost:5001/projects/${id}`)
             .then(r => r.json())
             .then(projects => {
-                // projects.forEach(currentProject => listOfProjects.push(currentProject))
+                projects.forEach(currentProject => listOfProjects.push(currentProject))
                 this.setState({ projects: listOfProjects })
                 console.log(this.state)
             })
-
+        let allMaterials = []
+        fetch(`http://localhost:5001/materials/${id}`)
+        .then(r => r.json())
+        .then(projects =>{
+            projects.forEach(currentProject => listOfProjects.push(currentProject))
+            this.setState({ materials: allMaterials})
+        })
     }
     render() {
         // render a div containing the material information

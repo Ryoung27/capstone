@@ -6,9 +6,10 @@ export default class Home extends Component {
         explanation: "",
         projects: [],
         projectId: "",
-        matieralId: ""
+        matieralId: "",
+        address: ""
     }
-/*Work area for today   posts needs to be corrected*/
+/*This updates the explanation section of the api*/
     explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
     method: "POST",
     headers: {
@@ -24,9 +25,32 @@ export default class Home extends Component {
 .then(r => r.json())
 .then(explanation => {
     this.setState({
-        explanation: explanation,
+        explanation: explanation
     })
 })
+
+/* This should update the other sections of the api when the form button is submitted. */
+    postInformation = (text) => fetch("http://localhost:5001/projects", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+                address: this.state.address
+        })
+    })
+    .then(() => {
+        return fetch("http://localhost:5001/projects")
+    })
+    .then(r => r.json())
+    .then(address => {
+        this.setState({
+            address: address
+        })
+        this.displayAll()
+    })
+
+
 
 handleFieldChange = (evt) => {
     const stateToChange = {}
@@ -34,13 +58,18 @@ handleFieldChange = (evt) => {
     this.setState(stateToChange)
 }
 
-
+displayAll = function () {
+    fetch(`http://localhost:5001/projects`)
+    .then(r => r.json())
+    .then(projects => this.setState({ projects: projects }))
+}
 
 /*Work area for today */
     componentDidMount() {
-        fetch(`http://localhost:5001/projects`)
-            .then(r => r.json())
-            .then(projects => this.setState({ projects: projects }))
+        this.displayAll()
+        // fetch(`http://localhost:5001/projects`)
+        //     .then(r => r.json())
+        //     .then(projects => this.setState({ projects: projects }))
     }
     render() {
         return (
@@ -63,6 +92,20 @@ handleFieldChange = (evt) => {
                                 </div>
                                 <button type="button" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button>
                             </form>
+                    </div>
+                    <div className="inputForm">
+                        <form>
+                            <div className="form-group">
+                                <label htmlFor="address">Construction Address</label>
+                                    <textarea id="address"
+                                              placeholder="Project Address"
+                                              value={this.state.address}
+                                              onChange={this.handleFieldChange}
+                                              className="form-control"
+                                              rows="1"></textarea>
+                            </div>
+                            <button type="button" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
+                        </form>
                     </div>
                     <div className="col col-sm-3">
                     </div>
