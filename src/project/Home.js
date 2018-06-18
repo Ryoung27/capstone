@@ -10,24 +10,24 @@ export default class Home extends Component {
         address: ""
     }
 /*This updates the explanation section of the api*/
-    explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        explanation: this.state.explanation
-    })
-})
-.then(() => {
-    return fetch("http://localhost:5001/projects_materials")
-})
-.then(r => r.json())
-.then(explanation => {
-    this.setState({
-        explanation: explanation
-    })
-})
+//     explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//         explanation: this.state.explanation
+//     })
+// })
+// .then(() => {
+//     return fetch("http://localhost:5001/projects_materials")
+// })
+// .then(r => r.json())
+// .then(explanation => {
+//     this.setState({
+//         explanation: explanation
+//     })
+// })
 
 /* This should update the other sections of the api when the form button is submitted. */
     postInformation = (text) => fetch("http://localhost:5001/projects", {
@@ -50,6 +50,12 @@ export default class Home extends Component {
         this.displayAll()
     })
 
+deleteInformation = (id) => fetch("http://localhost:5001/projects/${id}", {
+     method: "DELETE"
+    }).then(data => {
+        this.displayAll();
+    })
+
 
 
 handleFieldChange = (evt) => {
@@ -64,7 +70,7 @@ displayAll = function () {
     .then(projects => this.setState({ projects: projects }))
 }
 
-/*Work area for today */
+/*It seems easier to call the function to update when changes are made */
     componentDidMount() {
         this.displayAll()
         // fetch(`http://localhost:5001/projects`)
@@ -79,8 +85,11 @@ displayAll = function () {
                     </div>
                     <div className="col content col-sm-6">
                         <ProjectList projects={this.state.projects} />
+                        <button type ="button" className="btn btn-primary" onClick={this.delete}>
+                Delete
+              </button>
                     </div>
-                    <div className="newsfeed">
+                    {/* <div className="newsfeed">
                             <form>
                                 <div className="form-group">
                                     <label htmlFor="explanation"><h5>Explanation of overage.</h5></label>
@@ -92,7 +101,7 @@ displayAll = function () {
                                 </div>
                                 <button type="button" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button>
                             </form>
-                    </div>
+                    </div> */}
                     <div className="inputForm">
                         <form>
                             <div className="form-group">

@@ -24,23 +24,8 @@
       "address": "125 FakeWay"
     },
     {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
       "address": "1234 address",
       "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
     },
     {
       "address": "1234 wga",
@@ -53,6 +38,10 @@
     {
       "address": "1234 what",
       "id": 12
+    },
+    {
+      "address": "1234 another",
+      "id": 13
     }
   ],
   "projects_materials": [
@@ -103,6 +92,13 @@
       "projectId": 1,
       "materialId": 1,
       "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "explanation": "Do you work?",
+      "id": 9
     }
   ],
   "materials": [

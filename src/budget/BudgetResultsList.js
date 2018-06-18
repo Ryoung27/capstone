@@ -3,22 +3,25 @@ import Budget from "./Budget"
 import "./BudgetResults.css"
 
 export default class BudgetResultList extends Component {
+    componentDidMount(){
+        console.log("BudgetResultList")
+    }
     render() {
-
+        console.log(this.props)
         return (
             <div>
-            <div className="BudgetItemResult">
+            {/* <div className="BudgetItemResult">
                 <h2 className="BudgetItemResult__header">More info</h2>
                 {
-                    this.props.materials.map(p => <Budget key={p.id} materials={p} />)
+                 <Budget key={this.props.materials.id} materials={this.props.materials}/>
                 }
-            </div>
+            </div> */}
             <div className="BudgetResultList">
-                <h1 className="BudgetResultList__header">BudgetResult</h1>
+                <h2 className="BudgetResultList__header">BudgetResult</h2>
                 {
-                    this.props.project_materials.map(p => <Budget key={p.id} projects_materials={p} />)
-                }
-            </div>
+                 <Budget key={this.props.projects_materials} materials={this.props.materials} projects_materials={this.props.projects_materials} />
+                 }
+             </div>
             </div>
         )
     }

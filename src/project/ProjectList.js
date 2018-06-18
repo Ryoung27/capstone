@@ -3,6 +3,11 @@ import Project from "./Project"
 import "./ProjectList.css"
 
 export default class ProjectList extends Component {
+
+    delete = function() {
+        this.props.deleteInformation(this.props.posts.id);
+    }.bind(this);
+
     render() {
         return (
             <div className="projectList">
