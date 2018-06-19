@@ -1,26 +1,15 @@
 {
-  "users": [
-    {
-      "id": 1
-    },
-    {
-      "id": 2
-    }
-  ],
   "projects": [
     {
       "id": 1,
-      "userId": 1,
       "address": "123 FakeWay"
     },
     {
       "id": 2,
-      "userId": 1,
       "address": "124 FakeWay"
     },
     {
       "id": 3,
-      "userId": 1,
       "address": "125 FakeWay"
     },
     {
@@ -42,15 +31,13 @@
     {
       "address": "1234 another",
       "id": 13
+    },
+    {
+      "address": "12345",
+      "id": 14
     }
   ],
   "projects_materials": [
-    {
-      "id": 1,
-      "projectId": 1,
-      "materialId": 1,
-      "explanation": "We ran into rock."
-    },
     {
       "id": 2,
       "projectId": 1,
@@ -92,13 +79,6 @@
       "projectId": 1,
       "materialId": 1,
       "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "explanation": "Do you work?",
-      "id": 9
     }
   ],
   "materials": [

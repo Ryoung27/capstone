@@ -2,7 +2,6 @@ import React, { Component } from "react"
 //import ProjectList from "../project/ProjectList"
 import BudgetResultsList from "./BudgetResultsList"
 import "./BudgetResults.css"
-//I need to update the fetch to follow the right link on click.
 export default class BudgetResults extends Component {
     state = {
         projects_materials: [],
@@ -11,41 +10,86 @@ export default class BudgetResults extends Component {
         allMaterials: [],
         selectedId: 0,
         filteredProject: [],
-        explanation: ""
+        explanation: "",
+        ifThenMatchMaterials: []
     }
 
-    explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            explanation: this.state.explanation
-        })
-    })
-        .then(() => {
-            return fetch("http://localhost:5001/projects_materials")
-        })
+    displayAll = function () {
+        fetch(`http://localhost:5001/projects_materials`)
         .then(r => r.json())
-        .then(explanation => {
-            this.setState({
-                explanation: explanation
-            })
-        })
+        .then(projects_materials => this.setState({ projects_materials: projects_materials }))
+    }.bind(this)
 
 
+//http://localhost:5001/materials/${id}?_embed=projects_materials
 
 
+    deleteInformation = (id) => fetch(`http://localhost:5001/materials/${id}?_embed=projects_materials`, {
+        method: "DELETE"
+       }).then(data => {
+           this.props.displayAll();
+       //    Do a return
+            // return fetch(`http://localhost:5001/projects_materials/${id}`)
+            // .then(r => r.json())
+            // .then(listOfIfThenMatchMaterials => {
+            //     // this.setState({ifThenMatchMaterials: ifThenMatchMaterials})
+            //     listOfIfThenMatchMaterials.forEach(matchMaterialsMap => {
+            //         if (matchMaterialsMap.materialId === materials.id){
+            //          this.deleteInformation(projects_materials.materialId)
+            //         console.log("this works")
+            //         }
+            //     })
+            // }
+       // )
+
+           //return fetch foreach response with project materials if statement comparing materials.id projectmaterials.materialsid if they match also delete.
+       })
+
+
+    // joinTableDeleteInformation = (id) =>
+    //  fetch(`http://localhost:5001/projects_materials/${id}`, {
+    //      method: "DELETE"
+    //  }).then(data => {
+    //      this.props.displayAll();
+    //      return fetch(`http://localhost:5001/materials/${id}`)
+    //     .then(r => r.json())
+    //     .then(listOfIfThenMatchMaterials => {
+    //         // this.setState({ifThenMatchMaterials: ifThenMatchMaterials})
+    //         listOfIfThenMatchMaterials.forEach(matchMaterialsMap => {
+    //             if (matchMaterialsMap.materialId === materials.id){
+    //              this.deleteInformation(projects_materials.materialId)
+    //  })
+
+
+    // explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         explanation: this.state.explanation
+    //     })
+    // })
+    //     .then(() => {
+    //         return fetch("http://localhost:5001/projects_materials")
+    //     })
+    //     .then(r => r.json())
+    //     .then(explanation => {
+    //         this.setState({
+    //             explanation: explanation
+    //         })
+    //     })
     handleFieldChange = (evt) => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
-
-
-
-
-
+//Def need to double check, did this at home, esp. projects_materials
+    // deleteInformation = (id) => fetch("http://localhost:5001/projects_materials/${id}", {
+    //     method: "DELETE"
+    //    }).then(data => {
+    //        this.displayAll();
+    //    })
 
 
 
@@ -91,12 +135,12 @@ export default class BudgetResults extends Component {
                     <div className="col col-sm-3">
                     </div>
                     <div className="col content col-sm-6">
-                        <BudgetResultsList materials={this.state.materials} projects_materials={this.state.filteredProject} />
+                        <BudgetResultsList materials={this.state.materials} projects_materials={this.state.filteredProject} pm={this.state.project_materials} deleteInformation={this.deleteInformation} displayAll ={this.displayAll} />
                     </div>
 
 
 
-                    <div className="newsfeed">
+                    {/* <div className="newsfeed">
                         <form>
                             <div className="form-group">
                                 <label htmlFor="explanation"><h5>Explanation of overage.</h5></label>
@@ -104,11 +148,11 @@ export default class BudgetResults extends Component {
                                     value={this.state.explanation}
                                     onChange={this.handleFieldChange}
                                     className="form-control"
-                                    rows="4"></textarea>
+                                    rows="1"></textarea>
                             </div>
                             <button type="button" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button>
                         </form>
-                    </div>
+                    </div> */}
 
 
                     <div className="col col-sm-3">
@@ -138,10 +182,3 @@ export default class BudgetResults extends Component {
 }
 
 
-//This page should populate with budget items, but we will see how that goes.
-
-//I want to populate the dom like I did in project>projectList>home, but a div component will need more.
-//Also check if linking to the right place, probably not.
-
-
-//Potential new Component Did Mount

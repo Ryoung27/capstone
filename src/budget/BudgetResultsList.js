@@ -19,7 +19,7 @@ export default class BudgetResultList extends Component {
             <div className="BudgetResultList">
                 <h2 className="BudgetResultList__header">BudgetResult</h2>
                 {
-                 <Budget key={this.props.projects_materials} materials={this.props.materials} projects_materials={this.props.projects_materials} />
+                 <Budget key={this.props.projects_materials} materials={this.props.materials} pm={this.props.pm} projects_materials={this.props.projects_materials} deleteInformation={this.props.deleteInformation} displayAll= {this.props.displayAll} />
                  }
              </div>
             </div>

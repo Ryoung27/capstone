@@ -50,11 +50,11 @@ export default class Home extends Component {
         this.displayAll()
     })
 
-deleteInformation = (id) => fetch("http://localhost:5001/projects/${id}", {
-     method: "DELETE"
-    }).then(data => {
-        this.displayAll();
-    })
+// deleteInformation = (id) => fetch("http://localhost:5001/projects/${id}", {
+//      method: "DELETE"
+//     }).then(data => {
+//         this.displayAll();
+//     })
 
 
 
@@ -64,18 +64,15 @@ handleFieldChange = (evt) => {
     this.setState(stateToChange)
 }
 
-displayAll = function () {
-    fetch(`http://localhost:5001/projects`)
-    .then(r => r.json())
-    .then(projects => this.setState({ projects: projects }))
-}
+// displayAll = function () {
+//     fetch(`http://localhost:5001/projects`)
+//     .then(r => r.json())
+//     .then(projects => this.setState({ projects: projects }))
+// }
 
 /*It seems easier to call the function to update when changes are made */
     componentDidMount() {
         this.displayAll()
-        // fetch(`http://localhost:5001/projects`)
-        //     .then(r => r.json())
-        //     .then(projects => this.setState({ projects: projects }))
     }
     render() {
         return (
@@ -85,9 +82,9 @@ displayAll = function () {
                     </div>
                     <div className="col content col-sm-6">
                         <ProjectList projects={this.state.projects} />
-                        <button type ="button" className="btn btn-primary" onClick={this.delete}>
+                        {/* <button type ="button" className="btn btn-primary" onClick={this.delete}>
                 Delete
-              </button>
+              </button> */}
                     </div>
                     {/* <div className="newsfeed">
                             <form>
