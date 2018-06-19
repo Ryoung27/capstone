@@ -7,9 +7,6 @@ import Home from './project/Home';
 import './App.css';
 
 class App extends Component {
-
-
-
       // Set initial state
       state = {
         currentView: "",

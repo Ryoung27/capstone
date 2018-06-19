@@ -50,11 +50,19 @@ export default class Home extends Component {
         this.displayAll()
     })
 
-// deleteInformation = (id) => fetch("http://localhost:5001/projects/${id}", {
-//      method: "DELETE"
-//     }).then(data => {
-//         this.displayAll();
-//     })
+displayAll = function () {
+    fetch(`http://localhost:5001/projects`)
+    .then(r => r.json())
+    .then(projects => this.setState({ projects: projects }))
+    }
+
+
+
+deleteInformation = (id) => fetch("http://localhost:5001/projects/${id}", {
+     method: "DELETE"
+    }).then(data => {
+        this.displayAll();
+    })
 
 
 
@@ -64,11 +72,6 @@ handleFieldChange = (evt) => {
     this.setState(stateToChange)
 }
 
-// displayAll = function () {
-//     fetch(`http://localhost:5001/projects`)
-//     .then(r => r.json())
-//     .then(projects => this.setState({ projects: projects }))
-// }
 
 /*It seems easier to call the function to update when changes are made */
     componentDidMount() {

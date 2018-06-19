@@ -4,16 +4,16 @@ import "./ProjectList.css"
 
 export default class ProjectList extends Component {
 
-    delete = function() {
-        this.props.deleteInformation(this.props.posts.id);
-    }.bind(this);
+    // delete = function() {
+    //     this.props.deleteInformation(this.props.posts.id);
+    // }.bind(this);
 
     render() {
         return (
             <div className="projectList">
                 <h1 className="projectList__header">Projects</h1>
                 {
-                    this.props.projects.map(p => <Project key={p.id} project={p} />)
+                    <Project key={this.props.projects.id} projects={this.props.projects.id} />
                 }
             </div>
         )
