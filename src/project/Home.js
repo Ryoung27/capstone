@@ -9,26 +9,6 @@ export default class Home extends Component {
         matieralId: "",
         address: ""
     }
-/*This updates the explanation section of the api*/
-//     explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
-//     method: "POST",
-//     headers: {
-//         "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({
-//         explanation: this.state.explanation
-//     })
-// })
-// .then(() => {
-//     return fetch("http://localhost:5001/projects_materials")
-// })
-// .then(r => r.json())
-// .then(explanation => {
-//     this.setState({
-//         explanation: explanation
-//     })
-// })
-
 /* This should update the other sections of the api when the form button is submitted. */
     postInformation = (text) => fetch("http://localhost:5001/projects", {
         method: "POST",
@@ -85,23 +65,7 @@ handleFieldChange = (evt) => {
                     </div>
                     <div className="col content col-sm-6">
                         <ProjectList projects={this.state.projects} id={this.state.id} deleteInformation={this.deleteInformation} />
-                        {/* <button type ="button" className="btn btn-primary" onClick={this.delete}>
-                Delete
-              </button> */}
                     </div>
-                    {/* <div className="newsfeed">
-                            <form>
-                                <div className="form-group">
-                                    <label htmlFor="explanation"><h5>Explanation of overage.</h5></label>
-                                    <textarea id="explanation"
-                                              value={this.state.explanation}
-                                              onChange={this.handleFieldChange}
-                                              className="form-control"
-                                              rows="4"></textarea>
-                                </div>
-                                <button type="button" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button>
-                            </form>
-                    </div> */}
                     <div className="inputForm">
                         <form>
                             <div className="form-group">
@@ -123,9 +87,3 @@ handleFieldChange = (evt) => {
         )
     }
 }
-
-//Should my link be in Home or project?
-//How can I clear the dom with this link than bring in budget?
-//Find out how my links should work than not hardcode another nav, but something similar
-//Use Steve's Home.js file to recreate posting to api?
-//Use his message as your explanation.

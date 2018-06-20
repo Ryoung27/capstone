@@ -10,12 +10,6 @@ export default class BudgetResultList extends Component {
         console.log(this.props)
         return (
             <div>
-            {/* <div className="BudgetItemResult">
-                <h2 className="BudgetItemResult__header">More info</h2>
-                {
-                 <Budget key={this.props.materials.id} materials={this.props.materials}/>
-                }
-            </div> */}
             <div className="BudgetResultList">
                 <h2 className="BudgetResultList__header">BudgetResult</h2>
                 {

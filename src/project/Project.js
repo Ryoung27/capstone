@@ -5,7 +5,6 @@ import "./Project.css"
 
 export default class Project extends Component {
 
-        //change path
     delete = function (event) {
         this.props.deleteInformation(event.target.id)
     }.bind(this)
@@ -32,14 +31,3 @@ export default class Project extends Component {
     }
 }
 
-
-//Example of link button, yaya
-{/* <div className="col content col-sm-6">
-<BudgetResultsList materials={this.state.materials} projects_materials={this.state.filteredProject} pm={this.state.project_materials} deleteInformation={this.deleteInformation} displayAll ={this.displayAll} />
-</div> */}
-
-
-//button example
-{/* <button type ="button" className="btn btn-primary" onClick={this.props.deleteInformation.bind(this, p.id)} id={p.id}>
-Delete
-</button> */}

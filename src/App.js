@@ -14,7 +14,6 @@ class App extends Component {
     }
   render() {
     return (
-      // <div>
       <Router>
       <div>
         <Route exact path ={'/'} component={Home} />

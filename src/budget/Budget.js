@@ -11,17 +11,6 @@ export default class Budget extends Component {
         explanation: ""
     }
 
-
-    // displayAll = function () {
-    //     fetch(`http://localhost:5001/projects_materials`)
-    //     .then(r => r.json())
-    //     .then(projects_materials => this.setState({ projects_materials: projects_materials }))
-    // }
-
-
-
-
-
     /* This allows to post to the explanation of API */
     explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
         method: "POST",
@@ -41,7 +30,7 @@ export default class Budget extends Component {
                 explanation: explanation
             })
         })
-    /* */
+
     handleFieldChange = (evt) => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
@@ -50,7 +39,7 @@ export default class Budget extends Component {
     unique = 0;
     componentDidMount(){this.props.displayAll()}
     render() {
-        // console.log(this.props.materials)
+
         return (
             <div>
                 {this.props.materials.map(p =>{

@@ -1,19 +1,11 @@
 {
   "projects": [
     {
-      "id": 2,
-      "address": "124 FakeWay"
-    },
-    {
-      "id": 3,
-      "address": "125 FakeWay"
-    },
-    {
-      "id": 4,
+      "id": 1,
       "address": "123 FakeWay"
     },
     {
-      "id": 5,
+      "id": 2,
       "address": "124 FakeWay"
     },
     {
@@ -35,16 +27,22 @@
   ],
   "projects_materials": [
     {
+      "id": 2,
+      "projectId": 1,
+      "materialId": 3,
+      "explanation": "Ran into rock and need to pier home."
+    },
+    {
+      "id": 3,
+      "projectId": 1,
+      "materialId": 4,
+      "explanation": ""
+    },
+    {
       "id": 4,
       "projectId": 2,
       "materialId": 6,
       "explanation": "Consolidated clean up."
-    },
-    {
-      "id": 5,
-      "projectId": 2,
-      "materialId": 2,
-      "explanation": "Price of concrete is rising."
     },
     {
       "id": 6,
@@ -60,18 +58,6 @@
     }
   ],
   "materials": [
-    {
-      "id": 1,
-      "materialName": "Excavation",
-      "materialValue": 10000,
-      "actualCost": 35000
-    },
-    {
-      "id": 2,
-      "materialName": "Foundation",
-      "materialValue": 30000,
-      "actualCost": 35000
-    },
     {
       "id": 3,
       "materialName": "Piers",
