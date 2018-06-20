@@ -18,12 +18,6 @@ export default class Budget extends Component {
     //     .then(projects_materials => this.setState({ projects_materials: projects_materials }))
     // }
 
-    deleteInformation = (id) => fetch(`http://localhost:5001/materials/${id}`, {
-        method: "DELETE"
-       }).then(data => {
-           this.props.displayAll();
-           console.log("Delete Button Clicked")
-       })
 
 
 
@@ -76,7 +70,7 @@ export default class Budget extends Component {
                             <button type="button" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button>
                         </form>
                     </div>
-                <button type ="button" className="btn btn-primary" onClick={this.deleteInformation.bind(this, p.id)} id={p.id}>
+                <button type ="button" className="btn btn-primary" onClick={this.props.deleteInformation.bind(this, p.id)} id={p.id}>
                 Delete
                </button>
                 </div>

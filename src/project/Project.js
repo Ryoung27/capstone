@@ -5,33 +5,28 @@ import "./Project.css"
 
 export default class Project extends Component {
 
+        //change path
+    delete = function (event) {
+        this.props.deleteInformation(event.target.id)
+    }.bind(this)
+
+        handleFieldChange = (evt) => {
+            const stateToChange = {}
+            stateToChange[evt.target.id] = evt.target.value
+            this.setState(stateToChange)
+        }
 
 
-
-
-//change path
-    deleteInformation = (id) => fetch(`http://localhost:5001/projects/${id}?_embed=projects_materials`, {
-        method: "DELETE"
-    }).then(data => {
-        this.props.displayAll();
-       })
-
-
-    componentDidMount(){this.displayAll()}
-    unique = 0;
     render() {
-        return(
+        return (
             <div>
-                {this.props.projects.map(p => {
-                    return <div key={this.unique++}>
-                         <div className="card post">
-                            <Link to={`/budget/${p.id}`} className='card-text' project={p}>{p.address} </Link>
-                            <button type="button" className="btn btn-primary" onClick={this.deleteInformation.bind(this, p.id)} id={p.id}>
-                                Delete
+                <div className="card post">
+                    <Link to={`/budget/${this.props.projects.id}`} className='card-text' >{this.props.projects.address} </Link>
+                    <button type="button" className="btn btn-primary" onClick={this.delete} id={this.props.projects.id}>
+                        Delete
                             </button>
-                        </div>
-                    </div>
-                })}
+                </div>
+
             </div>
         )
     }

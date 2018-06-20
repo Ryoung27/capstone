@@ -58,11 +58,11 @@ displayAll = function () {
 
 
 
-deleteInformation = (id) => fetch("http://localhost:5001/projects/${id}", {
+deleteInformation = (id) =>{ fetch(`http://localhost:5001/projects/${id}`, {
      method: "DELETE"
     }).then(data => {
         this.displayAll();
-    })
+    })}
 
 
 
@@ -84,7 +84,7 @@ handleFieldChange = (evt) => {
                     <div className="col col-sm-3">
                     </div>
                     <div className="col content col-sm-6">
-                        <ProjectList projects={this.state.projects} />
+                        <ProjectList projects={this.state.projects} id={this.state.id} deleteInformation={this.deleteInformation} />
                         {/* <button type ="button" className="btn btn-primary" onClick={this.delete}>
                 Delete
               </button> */}

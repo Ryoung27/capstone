@@ -1,10 +1,6 @@
 {
   "projects": [
     {
-      "id": 1,
-      "address": "123 FakeWay"
-    },
-    {
       "id": 2,
       "address": "124 FakeWay"
     },
@@ -13,43 +9,31 @@
       "address": "125 FakeWay"
     },
     {
-      "address": "1234 address",
-      "id": 7
+      "id": 4,
+      "address": "123 FakeWay"
     },
     {
-      "address": "1234 wga",
-      "id": 10
+      "id": 5,
+      "address": "124 FakeWay"
     },
     {
-      "address": "1234 what",
-      "id": 11
+      "id": 6,
+      "address": "125 FakeWay"
     },
     {
-      "address": "1234 what",
-      "id": 12
+      "id": 7,
+      "address": "123 FakeWay"
     },
     {
-      "address": "1234 another",
-      "id": 13
+      "id": 8,
+      "address": "124 FakeWay"
     },
     {
-      "address": "12345",
-      "id": 14
+      "id": 9,
+      "address": "125 FakeWay"
     }
   ],
   "projects_materials": [
-    {
-      "id": 2,
-      "projectId": 1,
-      "materialId": 3,
-      "explanation": "Ran into rock and need to pier home."
-    },
-    {
-      "id": 3,
-      "projectId": 1,
-      "materialId": 4,
-      "explanation": ""
-    },
     {
       "id": 4,
       "projectId": 2,
@@ -73,12 +57,6 @@
       "projectId": 2,
       "materialId": 5,
       "explanation": "We found cheaper labor."
-    },
-    {
-      "explanation": "adfadfa",
-      "projectId": 1,
-      "materialId": 1,
-      "id": 7
     }
   ],
   "materials": [

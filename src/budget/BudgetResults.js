@@ -28,6 +28,7 @@ export default class BudgetResults extends Component {
         method: "DELETE"
        }).then(data => {
            this.props.displayAll();
+       })
        //    Do a return
             // return fetch(`http://localhost:5001/projects_materials/${id}`)
             // .then(r => r.json())
@@ -43,7 +44,7 @@ export default class BudgetResults extends Component {
        // )
 
            //return fetch foreach response with project materials if statement comparing materials.id projectmaterials.materialsid if they match also delete.
-       })
+
 
 
     // joinTableDeleteInformation = (id) =>
@@ -158,7 +159,6 @@ export default class BudgetResults extends Component {
                     <div className="col col-sm-3">
                     </div>
                 </div>
-                }
         {/* })
         } */}
             </div>)

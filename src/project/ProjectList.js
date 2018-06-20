@@ -13,9 +13,15 @@ export default class ProjectList extends Component {
             <div className="projectList">
                 <h1 className="projectList__header">Projects</h1>
                 {
-                    <Project key={this.props.projects.id} projects={this.props.projects.id} />
+                    this.props.projects.map(p => <Project key={p.id} id={p.id} projects={p} deleteInformation={this.props.deleteInformation} />)
                 }
             </div>
         )
     }
 }
+
+
+
+{/* <div className="col content col-sm-6">
+<BudgetResultsList materials={this.state.materials} projects_materials={this.state.filteredProject} pm={this.state.project_materials} deleteInformation={this.deleteInformation} displayAll ={this.displayAll} />
+</div> */}
