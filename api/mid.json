@@ -1,10 +1,6 @@
 {
   "projects": [
     {
-      "id": 1,
-      "address": "123 FakeWay"
-    },
-    {
       "id": 2,
       "address": "124 FakeWay"
     },
@@ -23,33 +19,21 @@
     {
       "id": 9,
       "address": "125 FakeWay"
+    },
+    {
+      "address": "123456",
+      "id": 10
+    },
+    {
+      "address": "attempt one",
+      "id": 11
+    },
+    {
+      "address": "Another atempt",
+      "id": 12
     }
   ],
   "projects_materials": [
-    {
-      "id": 2,
-      "projectId": 1,
-      "materialId": 3,
-      "explanation": "Ran into rock and need to pier home."
-    },
-    {
-      "id": 3,
-      "projectId": 1,
-      "materialId": 4,
-      "explanation": ""
-    },
-    {
-      "id": 4,
-      "projectId": 2,
-      "materialId": 6,
-      "explanation": "Consolidated clean up."
-    },
-    {
-      "id": 6,
-      "projectId": 2,
-      "materialId": 4,
-      "explanation": ""
-    },
     {
       "id": 6,
       "projectId": 2,
@@ -60,27 +44,15 @@
   "materials": [
     {
       "id": 3,
-      "materialName": "Piers",
-      "materialValue": 0,
-      "actualCost": 7000
-    },
-    {
-      "id": 4,
       "materialName": "Lumber",
-      "materialValue": 10000,
-      "actualCost": 10000
+      "materialValue": 8000,
+      "actualCost": 5000
     },
     {
       "id": 5,
       "materialName": "Lumber Labor",
       "materialValue": 8000,
       "actualCost": 5000
-    },
-    {
-      "id": 6,
-      "matieralName": "Digging",
-      "materialValue": 10000,
-      "actualCost": 8000
     }
   ]
 }
