@@ -5,6 +5,18 @@
       "address": "124 FakeWay"
     },
     {
+      "id": 3,
+      "address": "The first fake address"
+    },
+    {
+      "id": 4,
+      "address": "124 FakeWay"
+    },
+    {
+      "id": 5,
+      "address": "The first fake address"
+    },
+    {
       "id": 6,
       "address": "125 FakeWay"
     },
@@ -27,21 +39,47 @@
     {
       "address": "attempt one",
       "id": 11
-    },
-    {
-      "address": "Another atempt",
-      "id": 12
     }
   ],
   "projects_materials": [
     {
-      "id": 6,
+      "id": 3,
       "projectId": 2,
       "materialId": 5,
-      "explanation": "We found cheaper labor."
+      "explanation": "New deal with lumber supplier"
+    },
+    {
+      "id": 4,
+      "projectId": 2,
+      "materialId": 5,
+      "explanation": "We did not expect a bad piece of land"
+    },
+    {
+      "id": 5,
+      "projectId": 3,
+      "materialId": 6,
+      "explanation": "More expensive labor than expected"
+    },
+    {
+      "id": 6,
+      "projectId": 3,
+      "materialId": 5,
+      "explanation": ""
     }
   ],
   "materials": [
+    {
+      "id": 1,
+      "materialName": "Lot",
+      "materialValue": 75000,
+      "actualCost": 75000
+    },
+    {
+      "id": 2,
+      "materialName": "Foundation",
+      "materialValue": 30000,
+      "actualCost": 30000
+    },
     {
       "id": 3,
       "materialName": "Lumber",
@@ -49,10 +87,28 @@
       "actualCost": 5000
     },
     {
+      "id": 4,
+      "materialName": "Piers",
+      "materialValue": 0,
+      "actualCost": 7000
+    },
+    {
       "id": 5,
       "materialName": "Lumber Labor",
       "materialValue": 8000,
       "actualCost": 5000
+    },
+    {
+      "id": 6,
+      "materialName": "Framing",
+      "materialValue": 10000,
+      "actualCost": 10000
+    },
+    {
+      "id": 7,
+      "materialName": "Framing Labor",
+      "materialValue": 10000,
+      "actualCost": 10000
     }
   ]
 }

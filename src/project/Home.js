@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import ProjectList from "../project/ProjectList";
 
+
 export default class Home extends Component {
     state = {
         explanation: "",
         projects: [],
         projectId: "",
-        matieralId: "",
+        materialId: "",
         address: ""
     }
 /* This should update the other sections of the api when the form button is submitted. */

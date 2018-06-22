@@ -8,9 +8,56 @@ export default class Budget extends Component {
         allMaterials: [],
         selectedId: 0,
         filteredProject: [],
-        explanation: ""
+        explanation: "",
+        // materialName: "",
+        // materialValue: 0,
+        // actualCost: 0
     }
+/* Potential work space for Friday June 22nd
+   this should corresponde to Material Input
+   Need to have Kimmy look at, or get assistance.
+   Worksish
+*/
+// postInformation = (text) => fetch("http://localhost:5001/materials", {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//             materialName: this.state.materialName,
+//             materialValue: this.state.materialValue,
+//             actualCost: this.state.actualCost
+//     })
+// })
+// .then(() => {
+//     return fetch("http://localhost:5001/materials")
+// })
+// .then(r => r.json())
+// .then(materialName => {
+//     this.setState({
+//         materialName: materialName,
+//         materialValue: 0,
+//         actualCost: 0
+//     })
+//     this.displayAll()
+// })
 
+// displayAll = function () {
+// fetch(`http://localhost:5001/materials`)
+// .then(r => r.json())
+// .then(materials => this.setState({ materials: materials }))
+// }
+
+
+// /*Handle Field Change */
+// handleFieldChange = (evt) => {
+//     const stateToChange = {}
+//     stateToChange[evt.target.id] = evt.target.value
+//     this.setState(stateToChange)
+// }
+
+
+/*Potential work space for Friday June 22nd */
 delete =function(event) {
     this.props.deleteInformation(event.target.id)
     this.props.displayAll()
@@ -28,7 +75,7 @@ delete =function(event) {
         })
     })
         .then(() => {
-            return fetch("http://localhost:5001/projects_materials")
+            return fetch(`http://localhost:5001/projects_materials`)
         })
         .then(r => r.json())
         .then(explanation => {
@@ -70,7 +117,7 @@ delete =function(event) {
                                 Amount Remaining: {p.material.materialValue - p.material.actualCost}
                             </div>
                             <div id="explanationSection">
-                                Explanation of Overage:
+                                Explanation of Overage: {p.explanation}
                     </div>
                         </div>
                         <div className="newsfeed">
@@ -92,6 +139,33 @@ delete =function(event) {
                 <div>
                     {this.props.projects_materials.explanation}
                 </div>
+                {/* <form>
+                    <div className="material-form">
+                    <label htmlForm="materials">Material Input</label>
+                    <div>
+                    <textarea id="materialNameInput"
+                              placeholder="Material Name"
+                              value={this.state.materialName}
+                              onChange={this.handleFieldChange}
+                              className="form-control"
+                              rows="1"></textarea></div>
+                    <div>
+                    <textarea id="materialNameInput"
+                              placeholder="Expected Cost"
+                              value={this.state.materialValue}
+                              onChange={this.handleFieldChange}
+                              className="form-control"
+                              rows="1"></textarea></div>
+                    <div>
+                    <textarea id="materialNameInput"
+                              placeholder="Real Cost"
+                              value={this.state.actualCost}
+                              onChange={this.handleFieldChange}
+                              className="form-control"
+                              rows="1"></textarea></div>
+                    </div>
+                    <button type="button" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
+                </form> */}
             </div>
         )
     }

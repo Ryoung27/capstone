@@ -18,7 +18,6 @@ class App extends Component {
       <div>
         <Route exact path ={'/'} component={Home} />
             <Route exact path={'/budget/:budgetId'} component={BudgetResults}/>
-
         </div>
         </Router>
       /* <article>
