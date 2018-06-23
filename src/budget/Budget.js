@@ -118,7 +118,7 @@ delete =function(event) {
                             </div>
                             <div id="explanationSection">
                                 Explanation of Overage: {p.explanation}
-                    </div>
+                            </div>
                         </div>
                         <div className="newsfeed">
                             <form>
@@ -166,6 +166,9 @@ delete =function(event) {
                     </div>
                     <button type="button" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
                 </form> */}
+               <div id="amountUsed">
+                    Total Amount of Funds Used:
+                </div>
             </div>
         )
     }

@@ -1,4 +1,26 @@
 {
+  "users": [
+    {
+      "email": "ronnie@ronnieyoung.com",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "email": "richie@richieyoung.com",
+      "password": "1234",
+      "id": 2
+    },
+    {
+      "email": "richard@richardyoung.com",
+      "password": "1234",
+      "id": 2
+    },
+    {
+      "email": "richie@ronnieyoung.com",
+      "password": "1234",
+      "id": 3
+    }
+  ],
   "projects": [
     {
       "id": 2,
