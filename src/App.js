@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import BudgetResults from './budget/BudgetResults';
 //import logo from './logo.svg';
-import Home from './project/Home';
+import NewHome from './project/NewHome';
 import NavBar from './nav/NavBar';
 import Login from './auth/Login';
 import './App.css';
@@ -77,7 +77,7 @@ View = () => {
               return <Login showView={this.showView} setActiveUser={this.setActiveUser} />
           case "home":
           default:
-              return <newHome activeUser={this.state.activeUser} />
+              return <NewHome activeUser={this.state.activeUser} />
       }
   }
 }
@@ -87,8 +87,8 @@ View = () => {
 
   render() {
     return (
-      <Router>
-      <div>
+    //   <Router>
+    //   <div>
       <article>
                 <NavBar viewHandler={this.showView}
                     activeUser={this.state.activeUser}
@@ -96,21 +96,13 @@ View = () => {
                 />
                 {this.View()}
       </article>
-        <Route exact path ={'/'} component={Home} />
-            <Route exact path={'/budget/:budgetId'} component={BudgetResults}/>
-        </div>
-        </Router>
-      /* <article>
-        <Route exact path={'/budget'} component={BudgetResults}/>
-          <NavBar viewHandler={this.showView}
-          />
-          <Home/>
-
-
-      </article>
-      </div> */
-  )
-  }
+//         {/* <Route exact path ={'/'} component={Home} />
+//             <Route exact path={'/budget/:budgetId'} component={BudgetResults}/>
+//         </div>
+//         </Router>
+//   ) */}
+//   }
+    )
 }
-
-export default App;
+}
+export default App

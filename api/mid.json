@@ -19,6 +19,11 @@
       "email": "richie@ronnieyoung.com",
       "password": "1234",
       "id": 3
+    },
+    {
+      "email": "kaylamarie59@gmail.com",
+      "password": "1234",
+      "id": 4
     }
   ],
   "projects": [
