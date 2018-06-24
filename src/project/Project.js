@@ -18,14 +18,16 @@ export default class Project extends Component {
 
     render() {
         return (
-            <div>
+            <div id="top-card">
                 <div className="card post">
                     <Link to={`/budget/${this.props.projects.id}`} className='card-text' >{this.props.projects.address} </Link>
-                    <button type="button" className="btn btn-primary" onClick={this.delete} id={this.props.projects.id}>
+                    <button type="button" className="btn btn-primary, color-try" onClick={this.delete} id={this.props.projects.id}>
                         Delete
                             </button>
+                <div>
+                    {this.props.projects.projectType}
                 </div>
-
+                </div>
             </div>
         )
     }

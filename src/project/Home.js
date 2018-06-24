@@ -8,7 +8,8 @@ export default class Home extends Component {
         projects: [],
         projectId: "",
         materialId: "",
-        address: ""
+        address: "",
+        loanAmount: 0
     }
 /* This should update the other sections of the api when the form button is submitted. */
     postInformation = (text) => fetch("http://localhost:5001/projects", {
@@ -77,8 +78,17 @@ handleFieldChange = (evt) => {
                                               onChange={this.handleFieldChange}
                                               className="form-control"
                                               rows="1"></textarea>
+                                <div>
+                                <label htmlFor="type">Consturction Type</label>
+                                <textarea id="type"
+                                              placeholder="Construction Type"
+                                              value={this.state.projectType}
+                                              onChange={this.handleFieldChange}
+                                              className="form-control"
+                                              rows="1"></textarea>
+                                </div>
                             </div>
-                            <button type="button" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
+                            <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
                         </form>
                     </div>
                     <div className="col col-sm-3">

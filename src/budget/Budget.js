@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import "./BudgetResults.css"
 
 export default class Budget extends Component {
     state = {
@@ -18,43 +19,36 @@ export default class Budget extends Component {
    Need to have Kimmy look at, or get assistance.
    Worksish
 */
-// postInformation = (text) => fetch("http://localhost:5001/materials", {
-//     method: "POST",
-//     headers: {
-//         "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({
-//             materialName: this.state.materialName,
-//             materialValue: this.state.materialValue,
-//             actualCost: this.state.actualCost
-//     })
-// })
-// .then(() => {
-//     return fetch("http://localhost:5001/materials")
-// })
-// .then(r => r.json())
-// .then(materialName => {
-//     this.setState({
-//         materialName: materialName,
-//         materialValue: 0,
-//         actualCost: 0
-//     })
-//     this.displayAll()
-// })
+postInformation = (text) => fetch("http://localhost:5001/materials", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+            materialName: this.state.materialName,
+            materialValue: this.state.materialValue,
+            actualCost: this.state.actualCost
+    })
+})
+.then(() => {
+    return fetch("http://localhost:5001/materials")
+})
+.then(r => r.json())
+.then(materialName => {
+    this.setState({
+        materialName: materialName,
+        materialValue: 0,
+        actualCost: 0
+    })
+    this.displayAll()
+})
 
-// displayAll = function () {
-// fetch(`http://localhost:5001/materials`)
-// .then(r => r.json())
-// .then(materials => this.setState({ materials: materials }))
-// }
+displayAll = function () {
+fetch(`http://localhost:5001/materials`)
+.then(r => r.json())
+.then(materials => this.setState({ materials: materials }))
+}
 
-
-// /*Handle Field Change */
-// handleFieldChange = (evt) => {
-//     const stateToChange = {}
-//     stateToChange[evt.target.id] = evt.target.value
-//     this.setState(stateToChange)
-// }
 
 
 /*Potential work space for Friday June 22nd */
@@ -94,6 +88,7 @@ delete =function(event) {
         fetch(`http://localhost:5001/materials`)
             .then(r => r.json())
             .then(materials => this.setState({ materials: materials }))
+
     }
     render() {
         // The explanation button below doesn't work correctly, it should have the same id's as the project and link.
@@ -128,10 +123,10 @@ delete =function(event) {
                                         className="form-control"
                                         rows="1"></textarea>
                                 </div>
-                                <button type="button" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button>
+                                <button type="button" id="color-try" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button>
                             </form>
                         </div>
-                        <button type="button" className="btn btn-primary" onClick={this.delete} id={p.materialId}>
+                        <button type="button" className="btn btn-primary, color-try" onClick={this.delete} id={p.materialId}>
                             Delete
                </button>
                     </div>
@@ -139,7 +134,13 @@ delete =function(event) {
                 <div>
                     {this.props.projects_materials.explanation}
                 </div>
-                {/* <form>
+                <div id="amountUsed">
+                    Total Amount of Funds Used:
+                </div>
+                <div id="budgetedAmount">
+                    Total amount of Funds Budgeted:
+                </div>
+                <form>
                     <div className="material-form">
                     <label htmlForm="materials">Material Input</label>
                     <div>
@@ -164,15 +165,14 @@ delete =function(event) {
                               className="form-control"
                               rows="1"></textarea></div>
                     </div>
-                    <button type="button" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
-                </form> */}
-               <div id="amountUsed">
-                    Total Amount of Funds Used:
-                </div>
+                    <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
+                </form>
             </div>
         )
     }
 
 }
 
-
+// If I can get the explanation working I can get the
+// material post to work. Then I need to get the Total
+// Amount of funds used and navbar/login working.

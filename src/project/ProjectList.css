@@ -1,3 +1,8 @@
 .postList {
     margin-top: 3em;
 }
+
+body:link{
+    color: black;
+    text-decoration: none;
+}

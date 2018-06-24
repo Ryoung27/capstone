@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-// import "./login.css"
+import "./Login.css"
 
 //This is literally just a copy of Steve's to play with
 //over the weekend.
@@ -61,6 +61,7 @@ export default class Login extends Component {
     */
     render() {
         return (
+            <div id="form-center">
             <form className="form-signin" onSubmit={this.handleLogin}>
                 <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
                 <label htmlFor="inputEmail" className="sr-only">Email address</label>
@@ -70,9 +71,9 @@ export default class Login extends Component {
                 <div className="checkbox mb-3">
                     <input type="checkbox" value="remember-me" /> Remember me
                 </div>
-                <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                <p className="mt-5 mb-3 text-muted">© 2017-2018</p>
+                <button id="color-try" className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </form>
+            </div>
         )
     }
 }

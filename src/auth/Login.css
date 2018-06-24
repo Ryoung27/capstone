@@ -1,0 +1,15 @@
+#color-try{
+    background-color:#5F4B8B;
+}
+
+#form-center{
+    display: block;
+    text-align: center;
+    position: fixed; /* or absolute */
+    top: 40%;
+    left: 45%;
+}
+
+#form-center > form{
+    display: inline-block;
+}
