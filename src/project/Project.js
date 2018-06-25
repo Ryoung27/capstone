@@ -21,17 +21,21 @@ export default class Project extends Component {
             <div id="top-card">
                 <div className="card post">
                     <Link to={`/budget/${this.props.projects.id}`} className='card-text' >{this.props.projects.address} </Link>
-                    <button type="button" className="btn btn-primary, color-try" onClick={this.delete} id={this.props.projects.id}>
-                        Delete
-                            </button>
-                <div>
+                    <div>
                     {this.props.projects.projectType}
-                </div>
+                    </div>
+                    <div>
+                    Loan Amount: {this.props.projects.loanAmount}
+                    </div>
+                    <button type="button" className="btn small, color-try" onClick={this.delete} id={this.props.projects.id}>
+                    Delete
+                    </button>
                 </div>
             </div>
         )
     }
 }
+
 
 
 //http://localhost:5001/projects_materials?projectId=2&_expand=project&_expand=material

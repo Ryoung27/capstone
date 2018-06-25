@@ -1,7 +1,4 @@
-.post__author {
-    font-size: large;
-    width: 18rem;
-}
+
 
 .post {
     margin: 10px 0 0 0;
@@ -10,12 +7,29 @@
 
 .color-try{
     background-color:#B76BA3;
+    width: 25%;
+    margin: auto;
+    padding: 10%;
+    width: 50px;
+    height: 25px;
 }
 
 
 .card-text{
-    color:black;
+    color:white;
+    background-color:#5F4B8B;
+    text-decoration: none;
 
 }
+
+.card-text:hover{
+    text-decoration: none;
+}
+
+#top-card{
+    width: 40%;
+}
+
+
 
 

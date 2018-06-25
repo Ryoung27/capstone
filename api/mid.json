@@ -29,89 +29,91 @@
   "projects": [
     {
       "id": 2,
-      "address": "124 FakeWay",
-      "loanAmount": 0,
+      "address": "16715 EDEN BRG Belton, MO 64012",
+      "loanAmount": "2,500,000",
       "projectType": "Consumer Construction"
     },
     {
       "id": 3,
-      "address": "The first fake address",
-      "loanAmount": 0,
+      "address": "16716 EDEN BRG Belton, MO 64012",
+      "loanAmount": "3,500,000",
       "projectType": "Consumer Construction"
     },
     {
       "id": 4,
-      "address": "124 FakeWay",
-      "loanAmount": 0,
+      "address": "16717 EDEN BRG Belton, MO 64012",
+      "loanAmount": "5,000,000",
       "projectType": "Consumer Construction"
     },
     {
       "id": 5,
-      "address": "The first fake address",
-      "loanAmount": 0,
+      "address": "16718 EDEN BRG Belton, MO 64012",
+      "loanAmount": "5,000,000",
       "projectType": "Consumer Construction"
     },
     {
       "id": 6,
-      "address": "125 FakeWay",
-      "loanAmount": 0,
+      "address": "16719 EDEN BRG Belton, MO 64012",
+      "loanAmount": "5,000,000",
       "projectType": "Spec Construction"
     },
     {
       "id": 7,
-      "address": "123 FakeWay",
-      "loanAmount": 0,
+      "address": "16720 EDEN BRG Belton, MO 64012",
+      "loanAmount": "5,000,000",
       "projectType": "Spec Construction"
     },
     {
       "id": 8,
-      "address": "124 FakeWay",
-      "loanAmount": 0,
+      "address": "16721 EDEN BRG Belton, MO 64012",
+      "loanAmount": "5,000,000",
       "projectType": "Spec Construction"
     },
     {
       "id": 9,
-      "address": "125 FakeWay",
-      "loanAmount": 0,
+      "address": "16722 EDEN BRG Belton, MO 64012",
+      "loanAmount": "5,000,000",
       "projectType": "Spec Construction"
     },
     {
-      "address": "123456",
+      "address": "16723 EDEN BRG Belton, MO 64012",
       "id": 10,
-      "loanAmount": 0,
+      "loanAmount": "5,000,000",
       "projectType": "Build Job"
     },
     {
-      "address": "attempt one",
+      "address": "16724 EDEN BRG Belton, MO 64012",
       "id": 11,
-      "loanAmount": 0,
+      "loanAmount": "5,000,000",
       "projectType": "Build Job"
+    },
+    {
+      "address": "Attempt One",
+      "loanAmount": "Attempt One Amount",
+      "projectType": "Attempt One Build Job",
+      "id": 12
     }
   ],
   "projects_materials": [
     {
       "id": 3,
       "projectId": 2,
-      "materialId": 5,
-      "explanation": "New deal with lumber supplier"
+      "materialId": 5
     },
     {
       "id": 4,
       "projectId": 2,
-      "materialId": 5,
-      "explanation": "We did not expect a bad piece of land"
+      "materialId": 6
     },
     {
       "id": 5,
       "projectId": 3,
-      "materialId": 6,
-      "explanation": "More expensive labor than expected"
+      "materialId": 6
     },
     {
       "id": 6,
       "projectId": 3,
-      "materialId": 5,
-      "explanation": ""
+      "materialId": 5
     }
   ],
   "materials": [
@@ -131,37 +133,64 @@
       "id": 3,
       "materialName": "Lumber",
       "materialValue": 8000,
-      "actualCost": 5000
+      "actualCost": 5000,
+      "explanation": "New deal with lumber supplier"
     },
     {
       "id": 4,
       "materialName": "Piers",
       "materialValue": 0,
-      "actualCost": 7000
+      "actualCost": 7000,
+      "explanation": "Bad Piece of Land"
     },
     {
       "id": 5,
       "materialName": "Lumber Labor",
       "materialValue": 8000,
-      "actualCost": 5000
+      "actualCost": 5000,
+      "explanation": "New deal with lumber supplier"
     },
     {
       "id": 6,
       "materialName": "Framing",
       "materialValue": 10000,
-      "actualCost": 10000
+      "actualCost": 10000,
+      "explanation": ""
     },
     {
       "id": 7,
       "materialName": "Framing Labor",
       "materialValue": 10000,
-      "actualCost": 10000
+      "actualCost": 10000,
+      "explanation": ""
     },
     {
+      "materialName": "Floor",
+      "materialValue": "7000",
+      "actualCost": "7000",
+      "explanation": "",
       "id": 8
     },
     {
+      "materialName": "attempt one",
+      "materialValue": "100",
+      "actualCost": "1000",
+      "explanation": "",
       "id": 9
+    },
+    {
+      "materialName": "No",
+      "materialValue": "100",
+      "actualCost": "100",
+      "explanation": "",
+      "id": 10
+    },
+    {
+      "materialName": "No",
+      "materialValue": "1",
+      "actualCost": "1",
+      "explanation": "",
+      "id": 11
     }
   ]
 }

@@ -2,3 +2,17 @@
     background-color:#B76BA3;
     color: white;
 }
+
+.BudgetResultList__header{
+    margin-top: 3em;
+    text-align: center;
+    color:#5F4B8B;;
+}
+
+
+.card-text{
+    color:white;
+    background-color:#5F4B8B;
+    text-decoration: none;
+
+}

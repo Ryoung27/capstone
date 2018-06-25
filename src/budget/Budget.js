@@ -10,10 +10,41 @@ export default class Budget extends Component {
         selectedId: 0,
         filteredProject: [],
         explanation: "",
-        // materialName: "",
-        // materialValue: 0,
-        // actualCost: 0
+        materialName: "",
+        materialValue: "",
+        actualCost: ""
     }
+
+
+
+    displayAll = function () {
+        fetch(`http://localhost:5001/materials`)
+        .then(r => r.json())
+        .then(materials => this.setState({ materials: materials }))
+        }
+
+
+
+
+
+ joinTableInformation = (text) => fetch("http://localhost:5001/materials", {
+     method: "POST",
+     headers: {
+         "Content-Type": "application/json"
+     },
+     body: JSON.stringify({
+        materialId: this.state.id
+     })
+ })
+ .then(() => {
+     return fetch("http://localhost:5001/projects_materials")
+ })
+ .then(r => r.json())
+ .then(materialId => {
+     this.setState({
+        materialId: materialId
+     })
+ })
 /* Potential work space for Friday June 22nd
    this should corresponde to Material Input
    Need to have Kimmy look at, or get assistance.
@@ -27,7 +58,8 @@ postInformation = (text) => fetch("http://localhost:5001/materials", {
     body: JSON.stringify({
             materialName: this.state.materialName,
             materialValue: this.state.materialValue,
-            actualCost: this.state.actualCost
+            actualCost: this.state.actualCost,
+            explanation: this.state.explanation
     })
 })
 .then(() => {
@@ -37,52 +69,65 @@ postInformation = (text) => fetch("http://localhost:5001/materials", {
 .then(materialName => {
     this.setState({
         materialName: materialName,
-        materialValue: 0,
-        actualCost: 0
+        materialValue: this.state.materialValue,
+        actualCost: this.state.actualCost,
+        explanation: this.state.explanation
     })
     this.displayAll()
+    this.joinTableInformation()
 })
 
-displayAll = function () {
-fetch(`http://localhost:5001/materials`)
-.then(r => r.json())
-.then(materials => this.setState({ materials: materials }))
-}
+
+
 
 
 
 /*Potential work space for Friday June 22nd */
-delete =function(event) {
-    this.props.deleteInformation(event.target.id)
-    this.props.displayAll()
-}.bind(this)
+// delete =function(event) {
+//     this.props.deleteInformation(event.target.id)
+//     this.props.displayAll()
+// }.bind(this)
+
+
+
+// delete = function (event) {
+//     this.props.deleteInformation(event.target.id)
+// }.bind(this)
+
+
+
 
 
     /* This allows to post to the explanation of API */
-    explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            explanation: this.state.explanation
-        })
-    })
-        .then(() => {
-            return fetch(`http://localhost:5001/projects_materials`)
-        })
-        .then(r => r.json())
-        .then(explanation => {
-            this.setState({
-                explanation: explanation
-            })
-        })
+    // explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         explanation: this.state.explanation
+    //     })
+    // })
+    //     .then(() => {
+    //         return fetch(`http://localhost:5001/projects_materials`)
+    //     })
+    //     .then(r => r.json())
+    //     .then(explanation => {
+    //         this.setState({
+    //             explanation: explanation
+    //         })
+    //     })
+
+
+
+
 
     handleFieldChange = (evt) => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
+
     unique = 0;
     componentDidMount() {
         fetch(`http://localhost:5001/materials`)
@@ -99,7 +144,7 @@ delete =function(event) {
                 {this.props.materials.map(p => {
                     return <div key={this.unique++}>
                         <div id="budgetItemsComplete">
-                            <div id="materialName">
+                            <div id="materialName" className="card-text">
                                 Material Name: {p.material.materialName}
                             </div>
                             <div id="materialValue">
@@ -112,60 +157,70 @@ delete =function(event) {
                                 Amount Remaining: {p.material.materialValue - p.material.actualCost}
                             </div>
                             <div id="explanationSection">
-                                Explanation of Overage: {p.explanation}
+                                Explanation of Overage: {p.material.explanation}
                             </div>
                         </div>
-                        <div className="newsfeed">
+                        {/* <div className="newsfeed">
                             <form>
                                 <div className="form-group">
-                                    <label htmlFor="explanation"><h5>Explanation of overage.</h5></label>
+                                    <label htmlFor="explanation"><h5>Explanation of overage</h5></label>
                                     <textarea id="explanation"
                                         className="form-control"
                                         rows="1"></textarea>
                                 </div>
-                                <button type="button" id="color-try" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button>
-                            </form>
-                        </div>
+                                {/* <button type="button" id="color-try" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button> */}
+                            {/* </form>
+                        </div> */}
                         <button type="button" className="btn btn-primary, color-try" onClick={this.delete} id={p.materialId}>
                             Delete
                </button>
                     </div>
                 })}
-                <div>
-                    {this.props.projects_materials.explanation}
-                </div>
-                <div id="amountUsed">
+                {/* <div>
+                    {this.props.materials.explanation}
+                </div> */}
+                {/* <div id="amountUsed">
                     Total Amount of Funds Used:
                 </div>
                 <div id="budgetedAmount">
                     Total amount of Funds Budgeted:
                 </div>
+                <div id="amountRemaining">
+                    Total amount remaining:
+                </div> */}
                 <form>
                     <div className="material-form">
-                    <label htmlForm="materials">Material Input</label>
-                    <div>
-                    <textarea id="materialNameInput"
+                    <label htmlFor="materialName">Material Input</label>
+                    <textarea id="materialName"
                               placeholder="Material Name"
                               value={this.state.materialName}
                               onChange={this.handleFieldChange}
                               className="form-control"
-                              rows="1"></textarea></div>
+                              rows="1"></textarea>
                     <div>
-                    <textarea id="materialNameInput"
+                    <label htmlFor="materialValue">Expected Cost</label>
+                    <textarea id="materialValue"
                               placeholder="Expected Cost"
                               value={this.state.materialValue}
                               onChange={this.handleFieldChange}
                               className="form-control"
                               rows="1"></textarea></div>
-                    <div>
-                    <textarea id="materialNameInput"
-                              placeholder="Real Cost"
+                    <div> <label htmlFor="actualCost">Actual Cost</label>
+                    <textarea id="actualCost"
+                              placeholder="Actual Cost"
                               value={this.state.actualCost}
                               onChange={this.handleFieldChange}
                               className="form-control"
                               rows="1"></textarea></div>
-                    </div>
+                    <div><label htmlFor="explanation">Explanation of Overage</label>
+                    <textarea id="explanation"
+                              placeholder="Explanation of Overages"
+                              value={this.state.explanation}
+                              onChange={this.handleFieldChange}
+                              className="form-control"
+                              rows="1"></textarea></div>
                     <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
+                    </div>
                 </form>
             </div>
         )

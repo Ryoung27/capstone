@@ -11,3 +11,19 @@ body:link{
   color: black;
   text-decoration: none;
 }
+
+
+.inputForm{
+  width: 40%;
+}
+
+.btn{
+  width: 25%;
+  margin: auto;
+  padding: 10%;
+}
+
+.btn-info{
+  width: 40%;
+  margin: auto;
+}

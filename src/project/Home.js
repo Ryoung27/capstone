@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import ProjectList from "../project/ProjectList";
-
+import "./Home.css"
 
 export default class Home extends Component {
     state = {
@@ -9,7 +9,8 @@ export default class Home extends Component {
         projectId: "",
         materialId: "",
         address: "",
-        loanAmount: 0
+        loanAmount: "",
+        projectType: ""
     }
 /* This should update the other sections of the api when the form button is submitted. */
     postInformation = (text) => fetch("http://localhost:5001/projects", {
@@ -18,7 +19,9 @@ export default class Home extends Component {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-                address: this.state.address
+                address: this.state.address,
+                loanAmount: this.state.loanAmount,
+                projectType: this.state.projectType
         })
     })
     .then(() => {
@@ -27,10 +30,43 @@ export default class Home extends Component {
     .then(r => r.json())
     .then(address => {
         this.setState({
-            address: address
+            address: address,
+            loanAmount: this.state.loanAmount,
+            projectType: this.state.projectType
         })
         this.displayAll()
     })
+
+/* If constuction type doesn't work delete all below. */
+//     postConstructionType = (text) => fetch("http://localhost:5001/projects/projectType", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({
+//             projectType: this.state.projectType
+//         })
+//     })
+//     .then(() => {
+//         return fetch("http://localhost:5001/projects/projectType")
+//     })
+//     .then(r => r.json())
+//     .then(projectType => {
+//         this.setState({
+//             projectType: projectType
+//         })
+//         this.displayMore()
+//     })
+
+// displayMore = function () {
+//     fetch(`http://localhost:5001/projects/projectType`)
+//     .then(r => r.json())
+//     .then(projectType => this.setState({ projectType: projectType}))
+// }
+
+
+
+/*If construction type doesn't work delete all above. */
 
 displayAll = function () {
     fetch(`http://localhost:5001/projects`)
@@ -55,20 +91,21 @@ handleFieldChange = (evt) => {
 }
 
 
+
 /*It seems easier to call the function to update when changes are made */
     componentDidMount() {
         this.displayAll()
+        // this.displayMore()
     }
     render() {
         return (
             <div className="container-full">
                 <div className ="row">
-                    <div className="col col-sm-3">
+                    <div className="col col-sm-1">
                     </div>
-                    <div className="col content col-sm-6">
+                    <div className="col content col-sm-8">
                         <ProjectList projects={this.state.projects} id={this.state.id} deleteInformation={this.deleteInformation} />
-                    </div>
-                    <div className="inputForm">
+                        <div className="inputForm">
                         <form>
                             <div className="form-group">
                                 <label htmlFor="address">Construction Address</label>
@@ -79,17 +116,27 @@ handleFieldChange = (evt) => {
                                               className="form-control"
                                               rows="1"></textarea>
                                 <div>
-                                <label htmlFor="type">Consturction Type</label>
-                                <textarea id="type"
+                                <label htmlFor="projectType">Construction Type</label>
+                                <textarea id="projectType"
                                               placeholder="Construction Type"
                                               value={this.state.projectType}
                                               onChange={this.handleFieldChange}
                                               className="form-control"
                                               rows="1"></textarea>
                                 </div>
+                                <div>
+                                <label htmlFor="loanAmount">Loan Amount</label>
+                                <textarea id="loanAmount"
+                                              placeholder="Loan Amount"
+                                              value={this.state.loanAmount}
+                                              onChange={this.handleFieldChange}
+                                              className="form-control"
+                                              rows="1"></textarea>
+                                </div>
+                                <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
                             </div>
-                            <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
                         </form>
+                    </div>
                     </div>
                     <div className="col col-sm-3">
                     </div>

@@ -26,6 +26,20 @@ export default class BudgetResults extends Component {
            this.displayAll();
        })
 
+
+
+
+    //    displayAll = function () {
+    //     fetch(`http://localhost:5001/projects`)
+    //     .then(r => r.json())
+    //     .then(projects => this.setState({ projects: projects }))
+    //     }
+
+
+
+
+
+
     handleFieldChange = (evt) => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value

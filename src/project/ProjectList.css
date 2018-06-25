@@ -1,5 +1,7 @@
-.postList {
+.projectList {
     margin-top: 3em;
+    text-align: center;
+    color:#5F4B8B;;
 }
 
 body:link{

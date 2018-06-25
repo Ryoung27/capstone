@@ -72,6 +72,14 @@ export default class Login extends Component {
                     <input type="checkbox" value="remember-me" /> Remember me
                 </div>
                 <button id="color-try" className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                {/* <form className="form-signin" onSubmit={this.handleLogin}>
+                <h1 className="h3 mb-3 font-weight-normal">Or Sign up</h1>
+                <label htmlFor="inputEmail" className="sr-only">Email address</label>
+                <input onChange={this.handleFieldChange} type="email" id="email" className="form-control" placeholder="Email address" required="" autoFocus="" />
+                <label htmlFor="inputPassword" className="sr-only">Password</label>
+                <input onChange={this.handleFieldChange} type="password" id="password" className="form-control" placeholder="Password" required="" />
+                <button id="color-try" className="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            </form> */}
             </form>
             </div>
         )
