@@ -12,87 +12,85 @@ export default class Budget extends Component {
         explanation: "",
         materialName: "",
         materialValue: "",
-        actualCost: ""
+        actualCost: "",
+        projectId: ""
     }
 
 
 
     displayAll = function () {
         fetch(`http://localhost:5001/materials`)
+            .then(r => r.json())
+            .then(materials => this.setState({ materials: materials }))
+    }
+
+    joinTableInformation = (text) => fetch("http://localhost:5001/projects_materials", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            materialId: this.state.materials.id
+        })
+    })
+        .then(() => {
+            return fetch("http://localhost:5001/projects_materials")
+        })
         .then(r => r.json())
-        .then(materials => this.setState({ materials: materials }))
-        }
+        .then(materialId => {
+            this.setState({
+                materialId: materialId
 
-
-
-
-
- joinTableInformation = (text) => fetch("http://localhost:5001/materials", {
-     method: "POST",
-     headers: {
-         "Content-Type": "application/json"
-     },
-     body: JSON.stringify({
-        materialId: this.state.id
-     })
- })
- .then(() => {
-     return fetch("http://localhost:5001/projects_materials")
- })
- .then(r => r.json())
- .then(materialId => {
-     this.setState({
-        materialId: materialId
-     })
- })
-/* Potential work space for Friday June 22nd
-   this should corresponde to Material Input
-   Need to have Kimmy look at, or get assistance.
-   Worksish
-*/
-postInformation = (text) => fetch("http://localhost:5001/materials", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
+            })
+        })
+    /* Potential work space for Friday June 22nd
+       this should corresponde to Material Input
+       Need to have Kimmy look at, or get assistance.
+       Worksish
+    */
+    postInformation = (text) => fetch("http://localhost:5001/materials", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
             materialName: this.state.materialName,
             materialValue: this.state.materialValue,
             actualCost: this.state.actualCost,
             explanation: this.state.explanation
+        })
     })
-})
-.then(() => {
-    return fetch("http://localhost:5001/materials")
-})
-.then(r => r.json())
-.then(materialName => {
-    this.setState({
-        materialName: materialName,
-        materialValue: this.state.materialValue,
-        actualCost: this.state.actualCost,
-        explanation: this.state.explanation
-    })
-    this.displayAll()
-    this.joinTableInformation()
-})
+        .then(() => {
+            return fetch("http://localhost:5001/materials")
+        })
+        .then(r => r.json())
+        .then(materialName => {
+            this.setState({
+                materialName: materialName,
+                materialValue: this.state.materialValue,
+                actualCost: this.state.actualCost,
+                explanation: this.state.explanation
+            })
+            this.displayAll()
+            this.joinTableInformation()
+        })
 
 
 
 
 
 
-/*Potential work space for Friday June 22nd */
-// delete =function(event) {
-//     this.props.deleteInformation(event.target.id)
-//     this.props.displayAll()
-// }.bind(this)
+    /*Potential work space for Friday June 22nd */
+    // delete =function(event) {
+    //     this.props.deleteInformation(event.target.id)
+    //     this.props.displayAll()
+    // }.bind(this)
 
 
 
-// delete = function (event) {
-//     this.props.deleteInformation(event.target.id)
-// }.bind(this)
+    // delete = function (event) {
+    //     this.props.deleteInformation(event.target.id)
+    // }.bind(this)
 
 
 
@@ -135,16 +133,29 @@ postInformation = (text) => fetch("http://localhost:5001/materials", {
             .then(materials => this.setState({ materials: materials }))
 
     }
+
+
+    isOverage(p) {
+        {
+            if (p.material.materialValue - p.material.actualCost >= 0) {
+                return "card-text"
+            } else {
+                return "card-text-color-try"
+            }
+        }
+    }
+
+
     render() {
         // The explanation button below doesn't work correctly, it should have the same id's as the project and link.
         //Also it skips the title of every other explanation, probably to do with divs.
         //Delete button no longer works
         return (
-            <div>
+            <div className="row">
                 {this.props.materials.map(p => {
-                    return <div key={this.unique++}>
-                        <div id="budgetItemsComplete">
-                            <div id="materialName" className="card-text">
+                    return <div key={this.unique++} id="budgetItemsComplete" className="col-4">
+                        <div>
+                            <div id="materialName" className={this.isOverage(p)}>
                                 Material Name: {p.material.materialName}
                             </div>
                             <div id="materialValue">
@@ -160,66 +171,43 @@ postInformation = (text) => fetch("http://localhost:5001/materials", {
                                 Explanation of Overage: {p.material.explanation}
                             </div>
                         </div>
-                        {/* <div className="newsfeed">
-                            <form>
-                                <div className="form-group">
-                                    <label htmlFor="explanation"><h5>Explanation of overage</h5></label>
-                                    <textarea id="explanation"
-                                        className="form-control"
-                                        rows="1"></textarea>
-                                </div>
-                                {/* <button type="button" id="color-try" onClick={this.explanationMessage} className="btn btn-info btn-lg">Post</button> */}
-                            {/* </form>
-                        </div> */}
                         <button type="button" className="btn btn-primary, color-try" onClick={this.delete} id={p.materialId}>
                             Delete
-               </button>
+                         </button>
                     </div>
                 })}
-                {/* <div>
-                    {this.props.materials.explanation}
-                </div> */}
-                {/* <div id="amountUsed">
-                    Total Amount of Funds Used:
-                </div>
-                <div id="budgetedAmount">
-                    Total amount of Funds Budgeted:
-                </div>
-                <div id="amountRemaining">
-                    Total amount remaining:
-                </div> */}
-                <form>
+                <form className="col-12">
                     <div className="material-form">
-                    <label htmlFor="materialName">Material Input</label>
-                    <textarea id="materialName"
-                              placeholder="Material Name"
-                              value={this.state.materialName}
-                              onChange={this.handleFieldChange}
-                              className="form-control"
-                              rows="1"></textarea>
-                    <div>
-                    <label htmlFor="materialValue">Expected Cost</label>
-                    <textarea id="materialValue"
-                              placeholder="Expected Cost"
-                              value={this.state.materialValue}
-                              onChange={this.handleFieldChange}
-                              className="form-control"
-                              rows="1"></textarea></div>
-                    <div> <label htmlFor="actualCost">Actual Cost</label>
-                    <textarea id="actualCost"
-                              placeholder="Actual Cost"
-                              value={this.state.actualCost}
-                              onChange={this.handleFieldChange}
-                              className="form-control"
-                              rows="1"></textarea></div>
-                    <div><label htmlFor="explanation">Explanation of Overage</label>
-                    <textarea id="explanation"
-                              placeholder="Explanation of Overages"
-                              value={this.state.explanation}
-                              onChange={this.handleFieldChange}
-                              className="form-control"
-                              rows="1"></textarea></div>
-                    <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
+                        <label htmlFor="materialName">Material Input</label>
+                        <textarea id="materialName"
+                            placeholder="Material Name"
+                            value={this.state.materialName}
+                            onChange={this.handleFieldChange}
+                            className="form-control"
+                            rows="1"></textarea>
+                        <div>
+                            <label htmlFor="materialValue">Expected Cost</label>
+                            <textarea id="materialValue"
+                                placeholder="Expected Cost"
+                                value={this.state.materialValue}
+                                onChange={this.handleFieldChange}
+                                className="form-control"
+                                rows="1"></textarea></div>
+                        <div> <label htmlFor="actualCost">Actual Cost</label>
+                            <textarea id="actualCost"
+                                placeholder="Actual Cost"
+                                value={this.state.actualCost}
+                                onChange={this.handleFieldChange}
+                                className="form-control"
+                                rows="1"></textarea></div>
+                        <div><label htmlFor="explanation">Explanation of Overage</label>
+                            <textarea id="explanation"
+                                placeholder="Explanation of Overages"
+                                value={this.state.explanation}
+                                onChange={this.handleFieldChange}
+                                className="form-control"
+                                rows="1"></textarea></div>
+                        <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg col-12">Submit</button>
                     </div>
                 </form>
             </div>

@@ -18,7 +18,7 @@ export default class Project extends Component {
 
     render() {
         return (
-            <div id="top-card">
+            <div id="top-card" className="col-4">
                 <div className="card post">
                     <Link to={`/budget/${this.props.projects.id}`} className='card-text' >{this.props.projects.address} </Link>
                     <div>
@@ -26,6 +26,9 @@ export default class Project extends Component {
                     </div>
                     <div>
                     Loan Amount: {this.props.projects.loanAmount}
+                    </div>
+                    <div>
+                    Builder: {this.props.projects.builder}
                     </div>
                     <button type="button" className="btn small, color-try" onClick={this.delete} id={this.props.projects.id}>
                     Delete

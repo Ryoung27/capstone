@@ -10,8 +10,12 @@ export default class Home extends Component {
         materialId: "",
         address: "",
         loanAmount: "",
-        projectType: ""
+        projectType: "",
+        builder: ""
     }
+
+
+
 /* This should update the other sections of the api when the form button is submitted. */
     postInformation = (text) => fetch("http://localhost:5001/projects", {
         method: "POST",
@@ -21,7 +25,8 @@ export default class Home extends Component {
         body: JSON.stringify({
                 address: this.state.address,
                 loanAmount: this.state.loanAmount,
-                projectType: this.state.projectType
+                projectType: this.state.projectType,
+                builder: this.state.builder
         })
     })
     .then(() => {
@@ -30,48 +35,20 @@ export default class Home extends Component {
     .then(r => r.json())
     .then(address => {
         this.setState({
-            address: address,
+            address: this.state.address,
             loanAmount: this.state.loanAmount,
-            projectType: this.state.projectType
+            projectType: this.state.projectType,
+            builder: this.state.builder
         })
         this.displayAll()
     })
 
-/* If constuction type doesn't work delete all below. */
-//     postConstructionType = (text) => fetch("http://localhost:5001/projects/projectType", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-//             projectType: this.state.projectType
-//         })
-//     })
-//     .then(() => {
-//         return fetch("http://localhost:5001/projects/projectType")
-//     })
-//     .then(r => r.json())
-//     .then(projectType => {
-//         this.setState({
-//             projectType: projectType
-//         })
-//         this.displayMore()
-//     })
-
-// displayMore = function () {
-//     fetch(`http://localhost:5001/projects/projectType`)
-//     .then(r => r.json())
-//     .then(projectType => this.setState({ projectType: projectType}))
-// }
-
-
-
-/*If construction type doesn't work delete all above. */
 
 displayAll = function () {
     fetch(`http://localhost:5001/projects`)
     .then(r => r.json())
-    .then(projects => this.setState({ projects: projects }))
+    .then(projects => this.setState({ projects: projects
+     }))
     }
 
 
@@ -105,9 +82,10 @@ handleFieldChange = (evt) => {
                     </div>
                     <div className="col content col-sm-8">
                         <ProjectList projects={this.state.projects} id={this.state.id} deleteInformation={this.deleteInformation} />
-                        <div className="inputForm">
+                        <div className="inputForm col-12">
                         <form>
                             <div className="form-group">
+                                <div>
                                 <label htmlFor="address">Construction Address</label>
                                     <textarea id="address"
                                               placeholder="Project Address"
@@ -115,11 +93,21 @@ handleFieldChange = (evt) => {
                                               onChange={this.handleFieldChange}
                                               className="form-control"
                                               rows="1"></textarea>
+                                </div>
                                 <div>
                                 <label htmlFor="projectType">Construction Type</label>
                                 <textarea id="projectType"
                                               placeholder="Construction Type"
                                               value={this.state.projectType}
+                                              onChange={this.handleFieldChange}
+                                              className="form-control"
+                                              rows="1"></textarea>
+                                </div>
+                                <div>
+                                <label htmlFor="builder">Builder</label>
+                                <textarea id="builder"
+                                              placeholder="Builder"
+                                              value={this.state.builder}
                                               onChange={this.handleFieldChange}
                                               className="form-control"
                                               rows="1"></textarea>
@@ -133,7 +121,7 @@ handleFieldChange = (evt) => {
                                               className="form-control"
                                               rows="1"></textarea>
                                 </div>
-                                <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg">Submit</button>
+                                <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg col-12">Submit</button>
                             </div>
                         </form>
                     </div>

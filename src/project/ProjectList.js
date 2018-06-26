@@ -8,9 +8,11 @@ export default class ProjectList extends Component {
         return (
             <div className="projectList">
                 <h1 className="projectList__header">Current Construction Projects</h1>
+                <div className="row">
                 {
                     this.props.projects.map(p => <Project key={p.id} id={p.id} projects={p} deleteInformation={this.props.deleteInformation} />)
                 }
+                </div>
              {/* <div>
                 Total Amount of Loans:
                 {

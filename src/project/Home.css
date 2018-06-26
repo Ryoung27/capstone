@@ -20,10 +20,11 @@ body:link{
 .btn{
   width: 25%;
   margin: auto;
-  padding: 10%;
+  display: block;
 }
 
 .btn-info{
   width: 40%;
   margin: auto;
+  display: block;
 }

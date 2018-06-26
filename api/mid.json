@@ -31,67 +31,71 @@
       "id": 2,
       "address": "16715 EDEN BRG Belton, MO 64012",
       "loanAmount": "2,500,000",
-      "projectType": "Consumer Construction"
+      "projectType": "Consumer Construction",
+      "builder": "Roderick Homes"
     },
     {
       "id": 3,
       "address": "16716 EDEN BRG Belton, MO 64012",
       "loanAmount": "3,500,000",
-      "projectType": "Consumer Construction"
+      "projectType": "Consumer Construction",
+      "builder": "Roderick Homes"
     },
     {
       "id": 4,
       "address": "16717 EDEN BRG Belton, MO 64012",
       "loanAmount": "5,000,000",
-      "projectType": "Consumer Construction"
+      "projectType": "Consumer Construction",
+      "builder": "Roderick Homes"
     },
     {
       "id": 5,
       "address": "16718 EDEN BRG Belton, MO 64012",
       "loanAmount": "5,000,000",
-      "projectType": "Consumer Construction"
+      "projectType": "Consumer Construction",
+      "builder": "Roderick Homes"
     },
     {
       "id": 6,
       "address": "16719 EDEN BRG Belton, MO 64012",
       "loanAmount": "5,000,000",
-      "projectType": "Spec Construction"
+      "projectType": "Spec Construction",
+      "builder": "Roderick Homes"
     },
     {
       "id": 7,
       "address": "16720 EDEN BRG Belton, MO 64012",
       "loanAmount": "5,000,000",
-      "projectType": "Spec Construction"
+      "projectType": "Spec Construction",
+      "builder": "Roderick Homes"
     },
     {
       "id": 8,
       "address": "16721 EDEN BRG Belton, MO 64012",
       "loanAmount": "5,000,000",
-      "projectType": "Spec Construction"
+      "projectType": "Spec Construction",
+      "builder": "Roderick Homes"
     },
     {
       "id": 9,
       "address": "16722 EDEN BRG Belton, MO 64012",
       "loanAmount": "5,000,000",
-      "projectType": "Spec Construction"
+      "projectType": "Spec Construction",
+      "builder": "Roderick Homes"
     },
     {
       "address": "16723 EDEN BRG Belton, MO 64012",
       "id": 10,
       "loanAmount": "5,000,000",
-      "projectType": "Build Job"
+      "projectType": "Build Job",
+      "builder": "Roderick Homes"
     },
     {
       "address": "16724 EDEN BRG Belton, MO 64012",
       "id": 11,
       "loanAmount": "5,000,000",
-      "projectType": "Build Job"
-    },
-    {
-      "address": "Attempt One",
-      "loanAmount": "Attempt One Amount",
-      "projectType": "Attempt One Build Job",
-      "id": 12
+      "projectType": "Build Job",
+      "builder": "Roderick Homes"
     }
   ],
   "projects_materials": [
@@ -114,6 +118,11 @@
       "id": 6,
       "projectId": 3,
       "materialId": 5
+    },
+    {
+      "id": 7,
+      "projectId": 2,
+      "materialId": 7
     }
   ],
   "materials": [
@@ -161,7 +170,7 @@
       "id": 7,
       "materialName": "Framing Labor",
       "materialValue": 10000,
-      "actualCost": 10000,
+      "actualCost": 12000,
       "explanation": ""
     },
     {
@@ -186,11 +195,18 @@
       "id": 10
     },
     {
-      "materialName": "No",
-      "materialValue": "1",
-      "actualCost": "1",
+      "materialName": "Roof",
+      "materialValue": "1000",
+      "actualCost": "1000",
       "explanation": "",
       "id": 11
+    },
+    {
+      "materialName": "roof",
+      "materialValue": "100",
+      "actualCost": "100",
+      "explanation": "",
+      "id": 12
     }
   ]
 }
