@@ -87,7 +87,7 @@ export default class BudgetResults extends Component {
     render() {
         return (
                     <div>
-                        <BudgetResultsList budgetId={this.props.match.params.budgetId} materials={this.state.materials} projects_materials={this.state.filteredProject} pm={this.state.project_materials} deleteInformation={this.deleteInformation} displayAll ={this.displayAll} />
+                        <BudgetResultsList budgetId={this.props.match.params.budgetId} materials={this.state.materials} projects_materials={this.state.filteredProject} pm={this.state.project_materials} deleteInformation={this.deleteInformation} displayAll ={this.displayAll}/>
                     </div>
 
            )

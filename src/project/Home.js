@@ -41,6 +41,8 @@ export default class Home extends Component {
             builder: this.state.builder
         })
         this.displayAll()
+        /*This looks like garbage, but reloads the form */
+        window.location.reload()
     })
 
 

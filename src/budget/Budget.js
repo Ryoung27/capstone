@@ -13,8 +13,9 @@ export default class Budget extends Component {
         materialName: "",
         materialValue: "",
         actualCost: "",
-        projectId: ""
+        projectId: 0
     }
+
 
 
 
@@ -30,25 +31,16 @@ export default class Budget extends Component {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            materialId: this.state.materials.id
+                "projectId": parseInt(text.projectId),
+                "materialId": text.materialId
         })
     })
-        .then(() => {
-            return fetch("http://localhost:5001/projects_materials")
-        })
-        .then(r => r.json())
-        .then(materialId => {
-            this.setState({
-                materialId: materialId
-
-            })
-        })
     /* Potential work space for Friday June 22nd
        this should corresponde to Material Input
        Need to have Kimmy look at, or get assistance.
        Worksish
     */
-    postInformation = (text) => fetch("http://localhost:5001/materials", {
+    postInformation = () => fetch("http://localhost:5001/materials", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -60,7 +52,17 @@ export default class Budget extends Component {
             explanation: this.state.explanation
         })
     })
-        .then(() => {
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            let projectsMaterials = {
+                /*I need to set the correct project Id then I am done. */
+                "projectId": this.props.budgetResultsId,
+                "materialId": data.id
+              }
+            this.joinTableInformation(projectsMaterials)
+            console.log(projectsMaterials)
             return fetch("http://localhost:5001/materials")
         })
         .then(r => r.json())
@@ -72,7 +74,8 @@ export default class Budget extends Component {
                 explanation: this.state.explanation
             })
             this.displayAll()
-            this.joinTableInformation()
+             /*This looks like garbage, but reloads the form */
+            window.location.reload()
         })
 
 
@@ -86,6 +89,10 @@ export default class Budget extends Component {
     //     this.props.displayAll()
     // }.bind(this)
 
+    delete = function (event) {
+        this.props.deleteInformation(event.target.id)
+        window.location.reload()
+    }.bind(this)
 
 
     // delete = function (event) {
@@ -128,6 +135,7 @@ export default class Budget extends Component {
 
     unique = 0;
     componentDidMount() {
+        console.log(this.props);
         fetch(`http://localhost:5001/materials`)
             .then(r => r.json())
             .then(materials => this.setState({ materials: materials }))
