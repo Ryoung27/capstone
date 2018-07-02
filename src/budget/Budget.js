@@ -35,11 +35,7 @@ export default class Budget extends Component {
                 "materialId": text.materialId
         })
     })
-    /* Potential work space for Friday June 22nd
-       this should corresponde to Material Input
-       Need to have Kimmy look at, or get assistance.
-       Worksish
-    */
+
     postInformation = () => fetch("http://localhost:5001/materials", {
         method: "POST",
         headers: {
@@ -57,7 +53,6 @@ export default class Budget extends Component {
         })
         .then((data) => {
             let projectsMaterials = {
-                /*I need to set the correct project Id then I am done. */
                 "projectId": this.props.budgetResultsId,
                 "materialId": data.id
               }
@@ -74,7 +69,6 @@ export default class Budget extends Component {
                 explanation: this.state.explanation
             })
             this.displayAll()
-             /*This looks like garbage, but reloads the form */
             window.location.reload()
         })
 
@@ -83,45 +77,12 @@ export default class Budget extends Component {
 
 
 
-    /*Potential work space for Friday June 22nd */
-    // delete =function(event) {
-    //     this.props.deleteInformation(event.target.id)
-    //     this.props.displayAll()
-    // }.bind(this)
 
     delete = function (event) {
         this.props.deleteInformation(event.target.id)
         window.location.reload()
     }.bind(this)
 
-
-    // delete = function (event) {
-    //     this.props.deleteInformation(event.target.id)
-    // }.bind(this)
-
-
-
-
-
-    /* This allows to post to the explanation of API */
-    // explanationMessage = (text) => fetch("http://localhost:5001/projects_materials", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //         explanation: this.state.explanation
-    //     })
-    // })
-    //     .then(() => {
-    //         return fetch(`http://localhost:5001/projects_materials`)
-    //     })
-    //     .then(r => r.json())
-    //     .then(explanation => {
-    //         this.setState({
-    //             explanation: explanation
-    //         })
-    //     })
 
 
 
@@ -155,10 +116,8 @@ export default class Budget extends Component {
 
 
     render() {
-        // The explanation button below doesn't work correctly, it should have the same id's as the project and link.
-        //Also it skips the title of every other explanation, probably to do with divs.
-        //Delete button no longer works
         return (
+            <div>
             <div className="row">
                 {this.props.materials.map(p => {
                     return <div key={this.unique++} id="budgetItemsComplete" className="col-4">
@@ -218,12 +177,9 @@ export default class Budget extends Component {
                         <button type="button" id="color-try" onClick={this.postInformation} className="btn btn-info btn-lg col-12">Submit</button>
                     </div>
                 </form>
-            </div>
+                </div>
+        </div>
         )
     }
 
 }
-
-// If I can get the explanation working I can get the
-// material post to work. Then I need to get the Total
-// Amount of funds used and navbar/login working.

@@ -44,17 +44,6 @@ export default class NavBar extends Component {
     render() {
         return (
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
-                {/* <a className="navbar-brand col-sm-3 col-md-2 mr-0" onClick={this.props.viewHandler} href="#">
-                    <img id="nav__home" src={yak} style={{ height: `50px` }} />
-                </a> */}
-                {/* <input id="searchTerms"
-                    value={this.state.searchTerms}
-                    onChange={this.handleFieldChange}
-                    onKeyPress={this.search}
-                    className="form-control w-100"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search" /> */}
                 <ul className="navbar-nav px-3">
                 </ul>
                 <ul className="navbar-nav px-3">

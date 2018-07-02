@@ -16,7 +16,7 @@ export default class Home extends Component {
 
 
 
-/* This should update the other sections of the api when the form button is submitted. */
+
     postInformation = (text) => fetch("http://localhost:5001/projects", {
         method: "POST",
         headers: {
@@ -41,7 +41,6 @@ export default class Home extends Component {
             builder: this.state.builder
         })
         this.displayAll()
-        /*This looks like garbage, but reloads the form */
         window.location.reload()
     })
 
@@ -70,11 +69,8 @@ handleFieldChange = (evt) => {
 }
 
 
-
-/*It seems easier to call the function to update when changes are made */
     componentDidMount() {
         this.displayAll()
-        // this.displayMore()
     }
     render() {
         return (
@@ -128,7 +124,7 @@ handleFieldChange = (evt) => {
                         </form>
                     </div>
                     </div>
-                    <div className="col col-sm-3">
+                    <div className="col col-sm-1">
                     </div>
                 </div>
             </div>

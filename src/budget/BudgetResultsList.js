@@ -29,8 +29,8 @@ state = {
                 {
                  <Budget key={this.props.projects_materials} materials={this.state.materials} pm={this.props.pm} projects_materials={this.props.projects_materials} deleteInformation={this.props.deleteInformation} displayAll= {this.materialsDisplayAll}  budgetResultsId={this.props.budgetId}/>
                  }
+                 </div>
              </div>
-            </div>
         )
     }
 }

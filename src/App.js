@@ -83,12 +83,9 @@ View = () => {
 }
 
 
-/*Ending to Saturday play day Don't forget the state changes up top */
 
   render() {
     return (
-    //   <Router>
-    //   <div>
       <article>
                 <NavBar viewHandler={this.showView}
                     activeUser={this.state.activeUser}
@@ -96,12 +93,6 @@ View = () => {
                 />
                 {this.View()}
       </article>
-//         {/* <Route exact path ={'/'} component={Home} />
-//             <Route exact path={'/budget/:budgetId'} component={BudgetResults}/>
-//         </div>
-//         </Router>
-//   ) */}
-//   }
     )
 }
 }

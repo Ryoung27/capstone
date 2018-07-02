@@ -30,7 +30,7 @@ export default class Project extends Component {
                     <div>
                     Builder: {this.props.projects.builder}
                     </div>
-                    <button type="button" className="btn small, color-try" onClick={this.delete} id={this.props.projects.id}>
+                    <button type="button" className="btn, color-try" onClick={this.delete} id={this.props.projects.id}>
                     Delete
                     </button>
                 </div>
@@ -40,6 +40,4 @@ export default class Project extends Component {
 }
 
 
-
-//http://localhost:5001/projects_materials?projectId=2&_expand=project&_expand=material
 
