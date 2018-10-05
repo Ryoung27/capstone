@@ -21,7 +21,6 @@ class NewHome extends Component {
 out to bring pre-Saturday functionality
 */
 
-
   render() {
     return (
       <Router>

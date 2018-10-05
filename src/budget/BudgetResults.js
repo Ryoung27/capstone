@@ -25,9 +25,6 @@ export default class BudgetResults extends Component {
            this.displayAll();
        })
 
-
-
-
 // This is the breakdown of the budget items, to actually display items
 // on the budget.
 
