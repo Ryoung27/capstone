@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import "./Login.css"
 
-//This is literally just a copy of Steve's to play with
-//over the weekend.
 export default class Login extends Component {
 
     // Set initial state

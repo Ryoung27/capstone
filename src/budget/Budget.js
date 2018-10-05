@@ -76,19 +76,10 @@ export default class Budget extends Component {
         })
 
 
-
-
-
-
-
     delete = function (event) {
         this.props.deleteInformation(event.target.id)
         window.location.reload()
     }.bind(this)
-
-
-
-
 
 
     handleFieldChange = (evt) => {

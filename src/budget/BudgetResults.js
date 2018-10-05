@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-//import ProjectList from "../project/ProjectList"
 import BudgetResultsList from "./BudgetResultsList"
 import "./BudgetResults.css"
 export default class BudgetResults extends Component {
