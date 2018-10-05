@@ -7,7 +7,7 @@ export default class BudgetResultList extends Component {
 state = {
     materials: []
 }
-
+// This displays our budget information based on the budgetId.
 
     materialsDisplayAll = function () {
         console.log(this.props.budgetId)

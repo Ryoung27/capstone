@@ -16,7 +16,7 @@ export default class Budget extends Component {
         projectId: 0
     }
 
-
+// These are all very similar functions, if not the same, from Home.js.
 
 
     displayAll = function () {
@@ -24,6 +24,9 @@ export default class Budget extends Component {
             .then(r => r.json())
             .then(materials => this.setState({ materials: materials }))
     }
+
+    // this pares our join table to find materials attached to the
+    // currently displayed project.
 
     joinTableInformation = (text) => fetch("http://localhost:5001/projects_materials", {
         method: "POST",

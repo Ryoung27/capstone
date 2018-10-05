@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import { Link } from "react-router-dom"
 import "./Project.css"
 
+// This makes the card for the project, while project list
+// lists them.
 
 export default class Project extends Component {
 

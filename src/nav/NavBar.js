@@ -1,7 +1,4 @@
 import React, { Component } from "react"
-//import yak from "../images/yak.png"
-//import $ from "jquery"
-//import profilepic from "../images/profile.png"
 import "./NavBar.css"
 //Literally just a copy of Steve's
 //Same as login.
@@ -14,16 +11,9 @@ export default class NavBar extends Component {
         searchTerms: ""
     }
 
-    /**
-     * Local search handler, which invokes the searchHandler reference
-     * passed from App
-     */
-    // search = (e) => {
-    //     if (e.charCode === 13) {
-    //         this.props.searchHandler(this.state.searchTerms)
-    //         this.setState({ searchTerms: "" })
-    //     }
-    // }
+
+    // This is the login and logout section of the navbar, it's kind of a fake login, but appears the way one should.
+    // The reason it is kind of fake is it doesn't have a real backend.
 
     LoginLogout = () => {
         if (this.props.activeUser === null) {

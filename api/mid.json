@@ -120,11 +120,6 @@
       "materialId": 5
     },
     {
-      "id": 7,
-      "projectId": 2,
-      "materialId": 7
-    },
-    {
       "projectId": 2,
       "materialId": 10,
       "id": 9
@@ -133,6 +128,16 @@
       "projectId": 2,
       "materialId": 13,
       "id": 12
+    },
+    {
+      "projectId": 3,
+      "materialId": 14,
+      "id": 13
+    },
+    {
+      "projectId": 2,
+      "materialId": 15,
+      "id": 14
     }
   ],
   "materials": [
@@ -177,13 +182,6 @@
       "explanation": ""
     },
     {
-      "id": 7,
-      "materialName": "Framing Labor",
-      "materialValue": 10000,
-      "actualCost": 12000,
-      "explanation": ""
-    },
-    {
       "materialName": "Floor",
       "materialValue": "7000",
       "actualCost": "7000",
@@ -217,6 +215,20 @@
       "actualCost": "7500",
       "explanation": "",
       "id": 13
+    },
+    {
+      "materialName": "Roof",
+      "materialValue": "30000",
+      "actualCost": "25000",
+      "explanation": "",
+      "id": 14
+    },
+    {
+      "materialName": "Roof",
+      "materialValue": "7500",
+      "actualCost": "8000",
+      "explanation": "",
+      "id": 15
     }
   ]
 }

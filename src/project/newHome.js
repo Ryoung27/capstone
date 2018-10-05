@@ -5,6 +5,11 @@ import BudgetResults from '../budget/BudgetResults';
 import NavBar from '../nav/NavBar';
 import Home from '../project/Home'
 
+
+// This is my index page, it was kind of a bear to move out
+// and back, I should have planned better, this was the biggest
+// programming issue.
+
 class NewHome extends Component {
       state = {
         currentView: "login",

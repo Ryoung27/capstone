@@ -29,7 +29,8 @@ export default class BudgetResults extends Component {
 
 
 
-
+// This is the breakdown of the budget items, to actually display items
+// on the budget.
 
 
     handleFieldChange = (evt) => {

@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import ProjectList from "../project/ProjectList";
 import "./Home.css"
 
+// This page contains all my components.
+
 export default class Home extends Component {
     state = {
         explanation: "",
@@ -15,7 +17,7 @@ export default class Home extends Component {
     }
 
 
-
+// This allows me to post to the json file and get the information displayed.
 
     postInformation = (text) => fetch("http://localhost:5001/projects", {
         method: "POST",
@@ -44,7 +46,7 @@ export default class Home extends Component {
         window.location.reload()
     })
 
-
+// displayAll allows me to refresh the page automatically at the end of a call to the json file.
 displayAll = function () {
     fetch(`http://localhost:5001/projects`)
     .then(r => r.json())
@@ -53,7 +55,7 @@ displayAll = function () {
     }
 
 
-
+// delete delete's the information from the json file.
 deleteInformation = (id) =>{ fetch(`http://localhost:5001/projects/${id}`, {
      method: "DELETE"
     }).then(data => {
@@ -61,7 +63,7 @@ deleteInformation = (id) =>{ fetch(`http://localhost:5001/projects/${id}`, {
     })}
 
 
-
+// This handles any changes to refresh the page.
 handleFieldChange = (evt) => {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
