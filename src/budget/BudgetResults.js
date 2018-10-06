@@ -12,6 +12,12 @@ export default class BudgetResults extends Component {
         explanation: "",
         ifThenMatchMaterials: []
     }
+    // The use of state is something we learned three months ago.
+    // Today I would probably try to wrap my head around Redux.
+
+    // This display all gets our material information from the json file.
+    // While the delete information below it deletes then calls displayAll
+    // to refresh the page.
 
     displayAll = function () {
         fetch(`http://localhost:5001/projects_materials?_expand=material`)

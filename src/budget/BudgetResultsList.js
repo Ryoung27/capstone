@@ -16,7 +16,9 @@ state = {
         .then(materials => this.setState({ materials: materials }))
     }.bind(this)
 
-
+// This component did mount helps display the render function below.
+// The render function goes into the json file and gets the information.
+// To display in XML.
     componentDidMount(){
        this.materialsDisplayAll()
     }

@@ -18,6 +18,8 @@ export default class Budget extends Component {
 
 // These are all very similar functions, if not the same, from Home.js.
 
+//display all goes into the json file and displays the materials
+// from the json file.
 
     displayAll = function () {
         fetch(`http://localhost:5001/materials`)
@@ -28,6 +30,8 @@ export default class Budget extends Component {
     // this pares our join table to find materials attached to the
     // currently displayed project.
 
+
+    // This goes into the join table and finds materials based on projectId.
     joinTableInformation = (text) => fetch("http://localhost:5001/projects_materials", {
         method: "POST",
         headers: {
@@ -39,6 +43,7 @@ export default class Budget extends Component {
         })
     })
 
+    // This post the information we see in the card, wow this is convuluted.
     postInformation = () => fetch("http://localhost:5001/materials", {
         method: "POST",
         headers: {
@@ -75,12 +80,14 @@ export default class Budget extends Component {
             window.location.reload()
         })
 
+        // delete's the event by id then refreshes the page.
 
     delete = function (event) {
         this.props.deleteInformation(event.target.id)
         window.location.reload()
     }.bind(this)
 
+    // handleFieldChange change's the state of the field being, well changed.
 
     handleFieldChange = (evt) => {
         const stateToChange = {}
@@ -96,7 +103,8 @@ export default class Budget extends Component {
             .then(materials => this.setState({ materials: materials }))
 
     }
-
+// Is overage determines if there is an overage, and if there is
+// changes the text color of the card.
 
     isOverage(p) {
         {
